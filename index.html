@@ -2,56 +2,94 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automotive - Taller Altavista</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <title>Automotive | San Bartolo</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  
   <link rel="stylesheet" href="main.css">
   <script src="main.js" defer></script>
 </head>
 <body>
-  <main class="container">
+
+  <main class="container" id="mainContainer">
     <header class="header">
       <a href="#" class="logo">
-        <img class="logo__img" src="logo.svg" alt="Automotor" style="height: 40px;"> Automotor
+        <img class="logo__img" src="logo.svg" alt="Automotive" style="height: 40px;">
+        Automotive
       </a>
+
       <nav class="menu">
         <ul class="menu-list">
-          <li class="menu-list__item"><a href="#">Hogar</a></li>
-          <li class="menu-list__item"><a href="#">Características</a></li>
-          <li class="menu-list__item"><button class="book-appointment" id="openForm">Reserva Cita</button></li>
+          <li class="menu-list__item"><a href="#">Home</a></li>
+          <li class="menu-list__item"><a href="#">Features</a></li>
+          <li class="menu-list__item"><a href="#">Price</a></li>
+          <li class="menu-list__item">
+            <button class="book-appointment" id="openForm">Book Appointment</button>
+          </li>
         </ul>
       </nav>
     </header>
 
     <article class="content">
-      <a class="slideButton prevSlide"><i class="fa fa-chevron-left"></i></a>
-      <a class="slideButton nextSlide"><i class="fa fa-chevron-right"></i></a>
-      <h1 class="content__claim">Taller Altavista</h1>
-      <h2 class="content__subclaim">Expertos en reparaciones de calidad</h2>
+      <button class="slideButton prevSlide" id="prevBtn">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button class="slideButton nextSlide" id="nextBtn">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+      
+      <h1 class="content__claim">Your Car Repairs</h1>
+      <h2 class="content__subclaim">San Bartolo, Ilopango</h2>
     </article>
 
-    <div class="map-float">
-      <p>Altavista, Ilopango, El Salvador</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.3263!2d-89.1000!3d13.7000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6331a9860b7777%3A0x67347a5f6e804f5e!2sAltavista%2C%20Ilopango!5e0!3m2!1ses!2ssv!4v1700000000000" width="220" height="130" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="footer-wrapper">
+      <footer class="footer">
+        <section class="footer__widget">
+          <h3 class="footer__widget__title">Location</h3>
+          <p class="footer__widget__text">San Bartolo, Ilopango, El Salvador</p>
+        </section>
+        <section class="footer__widget">
+          <h3 class="footer__widget__title">Phone</h3>
+          <p class="footer__widget__text">+503 7000-0000</p>
+        </section>
+      </footer>
     </div>
-
-    <a href="https://wa.me/503XXXXXXXX" class="whatsapp-float" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
   </main>
+
+  <div class="map-card">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.326265745167!2d-89.1070562!3d13.7041006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6336605052994f%3A0xc63897d101d9f82d!2sSan%20Bartolo%2C%20Ilopango!5e0!3m2!1ses!2ssv!4v1700000000000!5m2!1ses!2ssv" 
+      width="150" height="150" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+
+  <a href="https://wa.me/50370000000" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <div id="bookingModal" class="modal">
     <div class="modal-content">
-      <span class="close">×</span>
-      <h2>Reservar Cita</h2>
+      <span class="close">&times;</span>
+      <h2>Reserva tu Cita</h2>
+      <p>Envía tus datos a creando.23api@gmail.com</p>
       <form action="https://formsubmit.co/creando.23api@gmail.com" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="text" name="carro" placeholder="Modelo del carro" required>
-        <textarea name="mensaje" placeholder="¿Qué falla tiene el carro?"></textarea>
-        <button type="submit" class="book-appointment">Enviar al correo</button>
+        <input type="text" name="name" placeholder="Tu Nombre Completo" required>
+        <input type="text" name="model" placeholder="Modelo del Vehículo" required>
+        <input type="tel" name="phone" placeholder="Tu Teléfono de contacto" required>
+        <textarea name="message" rows="4" placeholder="Describe el problema de tu carro"></textarea>
+        
+        <input type="hidden" name="_next" value="https://tu-usuario.github.io/CarWeb/">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <button type="submit" class="book-appointment" style="width: 100%;">Enviar Reserva</button>
       </form>
     </div>
   </div>
+
 </body>
 </html>
