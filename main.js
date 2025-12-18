@@ -1,22 +1,47 @@
-const images = ['car.jpg', 'carro.jpg', 'carroo.jpg'];
+// IMÁGENES PARA EL FONDO
+const images = [
+    'car.jpg',
+    'carro.jpg',
+    'carroo.jpg'
+];
+
 let index = 0;
-const container = document.querySelector('.container');
+const container = document.getElementById('mainContainer');
 
-document.querySelector('.nextSlide').onclick = () => {
+// FUNCION CAMBIAR FONDO
+function updateBackground() {
+    container.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${images[index]}')`;
+}
+
+// BOTONES SLIDE
+document.getElementById('nextBtn').addEventListener('click', () => {
     index = (index + 1) % images.length;
-    container.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${images[index]}')`;
-};
+    updateBackground();
+});
 
-document.querySelector('.prevSlide').onclick = () => {
+document.getElementById('prevBtn').addEventListener('click', () => {
     index = (index - 1 + images.length) % images.length;
-    container.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${images[index]}')`;
-};
+    updateBackground();
+});
 
-// Formulario Modal
+// LOGICA DEL FORMULARIO (MODAL)
 const modal = document.getElementById("bookingModal");
 const btn = document.getElementById("openForm");
 const span = document.getElementsByClassName("close")[0];
 
-btn.onclick = () => modal.style.display = "block";
-span.onclick = () => modal.style.display = "none";
-window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+// Abrir modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// Cerrar modal con la X
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Cerrar modal haciendo clic fuera de la caja
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
